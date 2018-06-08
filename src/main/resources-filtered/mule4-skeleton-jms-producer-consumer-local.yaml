@@ -1,0 +1,8 @@
+#proxy configuration elements for local environment
+my:
+  client-id: "xx"
+  client-secret: "xx"
+  
+message:
+  queue: "${name}"
+  
