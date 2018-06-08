@@ -20,12 +20,13 @@ Both encrypted and non-encrypted values can be used anywhere in the Mule app. En
 Note that you have to use the secure:: prefix to access all values inside a secure properties file, even if the values are non-encrypted.
 
 You can define more than one secure configuration properties file to read properties from. Simply define a &lt;secure-properties:config /&gt; tag for each file you want to load. Each secure configuration properties file is independent from the others." />
+
 	<jms:config name="JMS_Config" doc:name="JMS Config" doc:id="2d269be5-0230-4098-8a9c-1b9f1be5098c" >
-		<jms:active-mq-connection username="admin" password="admin" >
+		<jms:active-mq-connection username="${secure::message.broker.user}" password="${secure::message.broker.password}" >
 			<jms:caching-strategy >
 				<jms:default-caching />
 			</jms:caching-strategy>
-			<jms:factory-configuration brokerUrl="tcp://localhost:61616" />
+			<jms:factory-configuration brokerUrl="tcp://${secure::message.broker.host}:${secure::message.broker.port}" />
 		</jms:active-mq-connection>
 		<jms:consumer-config >
 			<jms:consumer-type >

@@ -5,3 +5,9 @@ my:
   
 message:
   queue: "${name}"
+  broker:
+   user: "admin"
+   password: "admin"
+   host: "localhost"
+   port: "61616"
+  
